@@ -1,0 +1,156 @@
+{
+	// Place your 문제풀이 스니펫 작업 영역 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"for loop": {
+		"prefix": "fl",
+		"body": ["for(let i=0; i<arr.length; i++){", " ", "}"],
+		"description": "create for loop"
+	},
+	"for loop j version": {
+		"prefix": "flj",
+		"body": [
+			"for(let i=0; i<arr.length; i++){",
+			"  for(let j=0; j<arr.length; j++){",
+			" ",
+			"  }",
+			"}"
+		],
+		"description": "create for loop"
+	},
+	"let n": {
+		"prefix": "ln",
+		"body": ["let n = arr.length"],
+		"description": "create let n"
+	},
+	"console.log": {
+		"prefix": "cl",
+		"body": ["console.log()"],
+		"description": "create console log"
+	},
+	"console.log-basic": {
+		"prefix": "clb",
+		"body": ["console.log('i',i,'j',j,'arr',arr)"],
+		"description": "create console basic log"
+	},
+	"console.log-solution": {
+		"prefix": "cls",
+		"body": ["console.log(solution())"],
+		"description": "create console log(solution)"
+	},
+	"console.log-json-parse-arr": {
+		"prefix": "clj",
+		"body": ["console.log('arr_in',JSON.parse(JSON.stringify(arr)))"],
+		"description": "create console log(solution)"
+	},
+	"isValid": {
+		"prefix": "clj",
+		"body": ["const isValid = (x,y) => x>=0 && x<n && y>=0 && y<m"],
+		"description": "isValid"
+	},
+	"arr-sort": {
+		"prefix": "aso",
+		"body": ["arr.sort((a,b)=>a-b)"],
+		"description": "arr-sort"
+	},
+	"Number.MAX": {
+		"prefix": "max",
+		"body": ["let answer=Number.MAX_SAFE_INTEGER;"],
+		"description": "create MAX"
+	},
+	"Number.MIN": {
+		"prefix": "min",
+		"body": ["let answer=Number.MIN_SAFE_INTEGER;"],
+		"description": "create MIN"
+	},
+	"check array": {
+		"prefix": "ca",
+		"body": ["let ch = Array.from({length:n+1}, ()=>0)"],
+		"description": "create checkbox array"
+	},
+	"graph array": {
+		"prefix": "ga",
+		"body": ["let graph = Array.from(Array(n+1), ()=>Array(n+1).fill(0))"],
+		"description": "create graph array"
+	},
+	"graph array example": {
+		"prefix": "gae",
+		"body": [
+			"let exArr = [",
+			"  [(0, 0), (0, 1), (0, 2)],",
+			"  [(1, 0), (1, 1), (1, 2)],",
+			"  [(2, 0), (2, 1), (2, 2)]",
+			"];"
+		],
+		"description": "create graph array example"
+	},
+
+	"direction x,y-4": {
+		"prefix": "dxy",
+		"body": ["let dx = [0,0,1,-1]", "let dy = [-1,1,0,0]"],
+		"description": "create dxy-4"
+		},
+		"direction x,y-8": {
+		"prefix": "dxy8",
+		"body": [
+			"let dx=[-1, -1, 0, 1, 1, 1, 0, -1]",
+			"let dy=[0, 1, 1, 1, 0, -1, -1, -1]"
+		],
+		"description": "create dxy-8"
+	},
+	"function solution": {
+		"prefix": "fs",
+		"body": ["function solution(){", "  let answer", "  return answer", "}"],
+		"description": "create function"
+		},
+		"arrow function solution": {
+		"prefix": "afs",
+		"body": ["let solution = () => {", " ", "}"],
+		"description": "create function"
+	},
+	"DFS": {
+		"prefix": "dfs",
+		"body": [
+			"function solution(arr) {",
+			" ",
+			"function DFS(){",
+			"  if(){",
+			"  ",
+			"  }else{",
+			"  ",
+			"  }",
+			" }",
+			" DFS()",
+			" ",
+			"}"
+		],
+		"description": "create DFS"
+	},
+	"isPrime": {
+		"prefix": "ip",
+		"body": [
+			"function isPrime(num) {",
+			"  if (num < 2) return false",
+			"  if (num === 2) return true",
+			"  for (let i = 2; i <= Math.sqrt(num); i++) {",
+			"    if (num % i === 0) return false",
+			"  }",
+			" return true",
+			"}"
+		],
+		"description": "create isPrime"
+	}
+}
