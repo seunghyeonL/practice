@@ -1,3 +1,19 @@
+const literalStack = {
+    storage : {},
+    top : 0,
+    push(el) {
+        this.storage[++this.top] = el;
+    },
+    pop() {
+        const result = this.storage[this.top--];
+        return result;
+    },
+    size() {
+        return this.top;
+    }
+}
+
+
 class Stack {
     // constructor() {
     //     this.storage = {};
@@ -20,9 +36,9 @@ class Stack {
 
 class StackPrivate {
     // constructor() {
-    //     this.storage = {};
-    //     this.top = 0;
-    // }
+    //     this.#storage = {};
+    //     this.#top = 0;
+    // } // field 생성 없이 이건 불가능
     #storage = {}
     #top = 0
     push(el) {
@@ -72,7 +88,7 @@ function closerStack() {
 }
 
 
-const s = new closerStack();
+const s = new StackPrivate();
 
 s.push(1);
 s.push(2);

@@ -20,10 +20,19 @@ const tests = input.slice(0, -1).map(el => el.split(' ').map(Number));
 //     else return console.log('neither'); 
 // }
 
-function hiOrder (a, b, callback) {
-	return callback(a, b);
+// function hiOrder (a, b, callback) {
+// 	return callback(a, b);
+// }
+
+// console.log(hiOrder(1, 2, function add (a, b) {return a+b}));
+
+let arr = [1, 2, 3, 4];
+let obj = {
+	
 }
 
-console.log(hiOrder(1, 2, function add (a, b) {return a+b}));
+const Map = Array.prototype.map;
+console.log(Map.call(arr, el => el+1));
+
 
 
