@@ -4,35 +4,25 @@ let input = fs.readFileSync('./input.txt').toString().trim().split('\n'); //read
 // const readline = require('readline');
 // const rl = readline.createInterface(fs.createReadStream('./input.txt'));
 
-const tests = input.slice(0, -1).map(el => el.split(' ').map(Number));
-
-// a는 b의 약수?
-// function isDivisor(a, b) {
-//     if(b%a === 0) return true;
-//     else return false;
-// }
-
-// for(let test of tests) {
-//     const divisorAB = isDivisor(test[0], test[1]);
-//     const divisorBA = isDivisor(test[0], test[1]);
-//     if(divisorBA) return console.log('multiple');
-//     else if(divisorAB) return console.log('factor');
-//     else return console.log('neither'); 
-// }
-
-// function hiOrder (a, b, callback) {
-// 	return callback(a, b);
-// }
-
-// console.log(hiOrder(1, 2, function add (a, b) {return a+b}));
-
-let arr = [1, 2, 3, 4];
-let obj = {
-	
+const isBracket = char => {
+    if(char === '(' || char === ')' || char === '[' || char === ']') return true;
+    else return false;
 }
 
-const Map = Array.prototype.map;
-console.log(Map.call(arr, el => el+1));
+const tests = input.slice(0, -1).map(el => el.split('').filter(isBracket));
 
+const check = (arr) => {
+    const stack = [];
+    for(let el of arr) {
+        if(el === ')' && stack[stack.length-1] === '(') stack.pop();
+        else if (el === ']' && stack[stack.length-1] === '[') stack.pop();
+        else stack.push(el);
+    }
+    if(stack.length === 0) return 'yes';
+    else return 'no';
+}
 
+for(let test of tests) {
+    console.log(check(test));
+}
 
