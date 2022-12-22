@@ -1,17 +1,10 @@
 const fs = require('fs');
-let input = fs.readFileSync('./input.txt').toString().trim(); //readFileSync(0) : stdin
+let input = fs.readFileSync('./input.txt').toString().trim().split('\n'); //readFileSync(0) : stdin
 
 // const readline = require('readline');
 // const rl = readline.createInterface(fs.createReadStream('./input.txt'));
 
-function makePartStrSet(str) {
-    const result = new Set();
-    for(let start = 0 ; start < str.length ; start++) {
-        for(let end = start+1 ; end <= str.length ; end++) {
-            result.add(str.slice(start, end));
-        }
-    }
-    return result;
-}
+const N = Number(input[0]);
+const dividers = input[1].split(' ').map(Number);
 
-console.log(makePartStrSet(input).size);
+console.log(Math.min(...dividers)*Math.max(...dividers));
