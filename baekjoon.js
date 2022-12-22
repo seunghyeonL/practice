@@ -4,7 +4,35 @@ let input = fs.readFileSync('./input.txt').toString().trim().split('\n'); //read
 // const readline = require('readline');
 // const rl = readline.createInterface(fs.createReadStream('./input.txt'));
 
-const N = Number(input[0]);
-const dividers = input[1].split(' ').map(Number);
+const tests = input.slice(0, -1).map(el => el.split(' ').map(Number));
 
-console.log(Math.min(...dividers)*Math.max(...dividers));
+// a는 b의 약수?
+// function isDivisor(a, b) {
+//     if(b%a === 0) return true;
+//     else return false;
+// }
+
+// for(let test of tests) {
+//     const divisorAB = isDivisor(test[0], test[1]);
+//     const divisorBA = isDivisor(test[0], test[1]);
+//     if(divisorBA) return console.log('multiple');
+//     else if(divisorAB) return console.log('factor');
+//     else return console.log('neither'); 
+// }
+
+// function hiOrder (a, b, callback) {
+// 	return callback(a, b);
+// }
+
+// console.log(hiOrder(1, 2, function add (a, b) {return a+b}));
+
+let arr = [1, 2, 3, 4];
+let obj = {
+	
+}
+
+const Map = Array.prototype.map;
+console.log(Map.call(arr, el => el+1));
+
+
+
