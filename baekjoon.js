@@ -1,3 +1,4 @@
+// import fs from 'fs';
 const fs = require('fs');
 let input = fs.readFileSync('./input.txt').toString().trim(); //readFileSync(0) : stdin
 
