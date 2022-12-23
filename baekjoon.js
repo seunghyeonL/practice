@@ -1,38 +1,47 @@
 const fs = require('fs');
-let input = fs.readFileSync('./input.txt').toString().trim().split('\n'); //readFileSync(0) : stdin
+let input = fs.readFileSync('./input.txt').toString().trim(); //readFileSync(0) : stdin
 
 // const readline = require('readline');
 // const rl = readline.createInterface(fs.createReadStream('./input.txt'));
 
-const tests = input.slice(0, -1).map(el => el.split(' ').map(Number));
+// const [a, b] = input.split(' ').map(Number);
 
-// a는 b의 약수?
-// function isDivisor(a, b) {
-//     if(b%a === 0) return true;
-//     else return false;
+// function euclidGCD(a, b) {
+//     while(1) {
+//         if(a%b === 0) break;
+//         let tmp = b;
+//         b = a%b;
+//         a = tmp;
+//     }
+//     return b;
 // }
 
-// for(let test of tests) {
-//     const divisorAB = isDivisor(test[0], test[1]);
-//     const divisorBA = isDivisor(test[0], test[1]);
-//     if(divisorBA) return console.log('multiple');
-//     else if(divisorAB) return console.log('factor');
-//     else return console.log('neither'); 
-// }
+// const GCD = euclidGCD(a, b);
+// const LCM = a*b/GCD;
 
-// function hiOrder (a, b, callback) {
-// 	return callback(a, b);
-// }
+// console.log(GCD);
+// console.log(LCM);
 
-// console.log(hiOrder(1, 2, function add (a, b) {return a+b}));
 
-let arr = [1, 2, 3, 4];
-let obj = {
-	
+const fibo = function(num) {
+
+    if(num === 1) return 1;
+    if(num === 2) return 1;
+    return fibo(num-1) + fibo(num-2);
 }
 
-const Map = Array.prototype.map;
-console.log(Map.call(arr, el => el+1));
-
-
+const simpleCloser = function(){
+    let value = 0
+    return {
+        increase: function() {
+            value++;
+        },
+        decrease: function() {
+            value--;
+        },
+        seaValue: function() {
+            return value;
+        }
+    }
+}
 
