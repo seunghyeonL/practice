@@ -5,7 +5,9 @@ const literalStack = {
         this.storage[++this.top] = el;
     },
     pop() {
-        const result = this.storage[this.top--];
+        if(!this.top) return;
+        const result = this.storage[this.top];
+        delete this.storage[this.top--];
         return result;
     },
     size() {
@@ -26,7 +28,9 @@ class Stack {
         this.storage[++this.top] = el;
     }
     pop() {
-        const result = this.storage[this.top--];
+        if(!this.top) return;
+        const result = this.storage[this.top];
+        delete this.storage[this.top--];
         return result;
     }
     size() {
@@ -45,7 +49,9 @@ class StackPrivate {
         this.#storage[++this.#top] = el;
     }
     pop() {
-        const result = this.#storage[this.#top--];
+        if(!this.#top) return;
+        const result = this.#storage[this.#top];
+        delete this.#storage[this.#top--];
         return result;
     }
     size() {
@@ -61,7 +67,9 @@ function Stackf() {
         this.storage[++this.top] = el;
     }
     this.pop = function() {
-        const result = this.storage[this.top--];
+        if(!this.top) return;
+        const result = this.storage[this.top];
+        delete this.storage[this.top--];
         return result;
     }
     this.size = function() {
@@ -78,7 +86,9 @@ function closerStack() {
             storage[++top] = el;
         },
         pop : function() {
-            const result = storage[top--];
+            if(!top) return;
+            const result = storage[top];
+            delete storage[top--];
             return result;
         },
         size : function() {
@@ -88,7 +98,7 @@ function closerStack() {
 }
 
 
-const s = new StackPrivate();
+const s = closerStack();
 
 s.push(1);
 s.push(2);
@@ -97,3 +107,4 @@ console.log(s.pop());
 console.log(s.size());
 console.log(s.pop());
 console.log(s.size());
+console.log(s.pop());

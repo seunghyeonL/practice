@@ -17,3 +17,37 @@ class Queue {
         return result;
     }
 }
+
+function closureQueue() {
+    const storage = {};
+    let front = 0;
+    let rear = 0;
+
+    return {
+        enQueue : function(el) {
+            storage[rear++] = el;
+        },
+        deQueue : function() {
+            if(front === rear) return;
+            const result = storage[front];
+            delete storage[front++];
+            return result;
+        },
+        size : function() {
+            return rear - front;
+        }
+    }
+}
+
+const q = closureQueue();
+
+q.enQueue(1);
+q.enQueue(2);
+q.enQueue(3);
+
+console.log(q.size());
+console.log(q.deQueue());
+console.log(q.size());
+console.log(q.deQueue());
+console.log(q.size());
+console.log(q.deQueue());
