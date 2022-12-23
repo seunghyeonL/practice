@@ -4,44 +4,25 @@ let input = fs.readFileSync('./input.txt').toString().trim(); //readFileSync(0) 
 // const readline = require('readline');
 // const rl = readline.createInterface(fs.createReadStream('./input.txt'));
 
-// const [a, b] = input.split(' ').map(Number);
-
-// function euclidGCD(a, b) {
-//     while(1) {
-//         if(a%b === 0) break;
-//         let tmp = b;
-//         b = a%b;
-//         a = tmp;
-//     }
-//     return b;
-// }
-
-// const GCD = euclidGCD(a, b);
-// const LCM = a*b/GCD;
-
-// console.log(GCD);
-// console.log(LCM);
-
-
-const fibo = function(num) {
-
-    if(num === 1) return 1;
-    if(num === 2) return 1;
-    return fibo(num-1) + fibo(num-2);
+const isBracket = char => {
+    if(char === '(' || char === ')' || char === '[' || char === ']') return true;
+    else return false;
 }
 
-const simpleCloser = function(){
-    let value = 0
-    return {
-        increase: function() {
-            value++;
-        },
-        decrease: function() {
-            value--;
-        },
-        seaValue: function() {
-            return value;
-        }
+const tests = input.slice(0, -1).map(el => el.split('').filter(isBracket));
+
+const check = (arr) => {
+    const stack = [];
+    for(let el of arr) {
+        if(el === ')' && stack[stack.length-1] === '(') stack.pop();
+        else if (el === ']' && stack[stack.length-1] === '[') stack.pop();
+        else stack.push(el);
     }
+    if(stack.length === 0) return 'yes';
+    else return 'no';
+}
+
+for(let test of tests) {
+    console.log(check(test));
 }
 
