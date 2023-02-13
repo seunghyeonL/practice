@@ -1,24 +1,28 @@
 // import fs from 'fs';
 const fs = require('fs');
-let input = fs.readFileSync('./input.txt').toString().trim().split('\n'); //readFileSync(0) : stdin
 
 // const readline = require('readline');
 // const rl = readline.createInterface(fs.createReadStream('./input.txt'));
-const range = new Array(Number(input[0])).fill(0).map((el, idx) => idx+1);
-const numbers = input.slice(1).map(Number);
 
-// const id = Symbol('id');
+let input = fs.readFileSync('./input.txt').toString().trim(); //readFileSync(0) : stdin
+const [N, K] = input.split(' ').map(Number);
 
-// const obj = {
-//     [id] : 1,
-//     name : 'lsh'
-// }
+const dp = [[], [1]];
 
-// const obj1 = Object.assign({}, obj);
-// const obj2 = {...obj}
+function find(N) {
+    const upperArr = dp[N-1];
+    const result = [];
+    for(let i=0 ; i<upperArr.length+1 ; i++) {
+        if(i === 0) result[i] = upperArr[0];
+        else if(i === upperArr.length) result[i] = upperArr[upperArr.length-1];
+        else result[i] = upperArr[i-1] +  upperArr[i];
+    }
+    return result;
+}
 
-// console.log(obj1);
-// console.log(obj2);
-// console.log(obj1['id'])
-// console.log(Object.keys(obj));
+for(let i=2 ; i<=N+1 ; i++) {
+    dp[i] = find(i);
+}
+
+console.log(dp[N+1][K] % 10007); 
 

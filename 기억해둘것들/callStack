@@ -1,0 +1,18 @@
+// 전제
+// 콜스택의 크기는 스크립트에 무관하게 균일
+
+// 지역변수 원시타입이 저장될 경우 스택에 저장된다 => 모순발생
+
+let counter = 0;
+try {
+  function foo() {
+    let local = counter;
+    counter += 1;
+    foo();
+  }
+  foo();
+} catch(e) {
+  console.error(e);
+  console.log('counter =', counter);
+}
+

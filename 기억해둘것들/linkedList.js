@@ -4,7 +4,6 @@ class ListNode {
         this.prevNode = prevNode;
         this.nextNode = nextNode;
     }
-
 } 
 
 class Stack {
