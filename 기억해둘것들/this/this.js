@@ -19,6 +19,8 @@ const seeName = obj.seeName;
 obj.seeName(); // lsh
 seeName(); // undefined
 
+// 렉시컬 스코프의 this는 seeName메서드인 익명함수의 this가 된다.
+
 
 // 어떤 객체를 사용할 지 명확할 경우는 가독성을 위해 this사용을 지양해야 한다.
 
@@ -54,10 +56,10 @@ const obj3 = {
 const seeName1 = obj1.seeName;
 const seeName2 = obj2.seeName;
 
-obj1.seeName();
-seeName1();
-seeName1.call(obj3);
+obj1.seeName(); // undefined
+seeName1(); // undefined
+seeName1.call(obj3); // undefined
 
-obj2.seeName();
-seeName2();
-seeName2.call(obj3);
+obj2.seeName(); // 'lsh'
+seeName2(); // 'lsh'
+seeName2.call(obj3); // 'lsh'
