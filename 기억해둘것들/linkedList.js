@@ -1,81 +1,79 @@
 class ListNode {
-    constructor(value, prevNode, nextNode) {
-        this.value = value;
-        this.prevNode = prevNode;
-        this.nextNode = nextNode;
-    }
-} 
+  constructor(value, prevNode, nextNode) {
+    this.value = value;
+    this.prevNode = prevNode;
+    this.nextNode = nextNode;
+  }
+}
 
 class Stack {
-    constructor() {
-        this.lastNode = null;
+  constructor() {
+    this.lastNode = null;
+  }
+  push(el) {
+    this.lastNode = new ListNode(el, this.lastNode, null);
+  }
+  pop() {
+    if (!this.lastNode) return;
+    const result = this.lastNode;
+    this.lastNode = this.lastNode.prevNode;
+    return result.value;
+  }
+  size() {
+    let result = 0;
+    let currentNode = this.lastNode;
+    while (1) {
+      if (!currentNode) break;
+      result++;
+      currentNode = currentNode.prevNode;
     }
-    push(el) {
-        this.lastNode = new ListNode(el, this.lastNode, null);
-    }
-    pop() {
-        if(!this.lastNode) return;
-        const result = this.lastNode;
-        this.lastNode = this.lastNode.prevNode;
-        return result.value;
-    }
-    size() {
-        let result = 0;
-        let currentNode = this.lastNode;
-        while(1) {
-            if(!currentNode) break;
-            result++;
-            currentNode = currentNode.prevNode;
-        }
-        return result;
-    }
+    return result;
+  }
 }
 
 class Queue {
-    constructor() {
-        this.firstNode = null;
-        this.lastNode = null;
+  constructor() {
+    this.firstNode = null;
+    this.lastNode = null;
+  }
+  enQueue(el) {
+    const newNode = new ListNode(el, this.lastNode, null);
+    if (!this.firstNode) {
+      this.firstNode = newNode;
+      this.lastNode = newNode;
+    } else if (!this.firstNode.nextNode) {
+      this.firstNode.nextNode = newNode;
+      this.lastNode = newNode;
+    } else {
+      this.lastNode.nextNode = newNode;
+      this.lastNode = newNode;
     }
-    enQueue(el) {
-        const newNode = new ListNode(el, this.lastNode, null);
-        if(!this.firstNode) {
-            this.firstNode = newNode;
-            this.lastNode = newNode;
-        }
-        else if(!this.firstNode.nextNode) {
-            this.firstNode.nextNode = newNode;
-            this.lastNode = newNode;
-        }
-        else {
-            this.lastNode.nextNode = newNode;
-            this.lastNode = newNode;
-        }
-    }
-    deQueue() {
-        if(!this.firstNode) return;
+  }
+  deQueue() {
+    if (!this.firstNode) return;
 
-        if(!this.firstNode.nextNode) {
-            const result = this.firstNode;
-            this.firstNode = null;
-            this.lastNode = null;
-            return result.value;
-        }
+    if (!this.firstNode.nextNode) {
+      const result = this.firstNode;
+      this.firstNode = null;
+      this.lastNode = null;
+      return result.value;
+    }
 
-        const result = this.firstNode;
-        this.firstNode = this.firstNode.nextNode;
-        return result.value;
+    const result = this.firstNode;
+    this.firstNode = this.firstNode.nextNode;
+    return result.value;
+  }
+  size() {
+    if (!this.firstNode) return 0;
+    let result = 0;
+    let currentNode = this.firstNode;
+    while (1) {
+      if (!currentNode) return result;
+      currentNode = currentNode.nextNode;
+      result++;
     }
-    size() {
-        if(!this.firstNode) return 0;
-        let result = 0;
-        let currentNode = this.firstNode;
-        while(1) {
-            if(!currentNode) return result;
-            currentNode = currentNode.nextNode;
-            result++;
-        }
-        return result;
-    }
+    return result;
+  }
 }
 
 // const s = new Stack();

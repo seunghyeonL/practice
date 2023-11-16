@@ -3,9 +3,9 @@ let b = 2;
 const c = 3;
 
 function seeThis() {
-    console.log(this.a); // undefined
-    console.log(this.b); // undefined
-    console.log(this.c); // undefined
+  console.log(this.a); // undefined
+  console.log(this.b); // undefined
+  console.log(this.c); // undefined
 }
 seeThis();
 console.log(this.a); // undefined

@@ -1,26 +1,26 @@
 class Human {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
-    introduce() {
-        return this.name + ' ' + this.age;
-    }
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  introduce() {
+    return this.name + " " + this.age;
+  }
 }
 
-class Student extends Human{
-    constructor(name, age, school) {
-        super();
-        this.name = name;
-        this.age = age;
-        this.school = school;
-    }
-    hello() {
-        return this.name + ' ' + this.age + ' ' + this.school;
-    }
+class Student extends Human {
+  constructor(name, age, school) {
+    super();
+    this.name = name;
+    this.age = age;
+    this.school = school;
+  }
+  hello() {
+    return this.name + " " + this.age + " " + this.school;
+  }
 }
 
-const student = new Student('승현', 27, 'university')
+const student = new Student("승현", 27, "university");
 console.log(student.introduce());
 console.log(student.hello());
 console.log(Student.prototype);
